@@ -10,10 +10,11 @@ import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
-        List<List<Word>> wordsLists = new ArrayList<>();
-        wordsLists.add(DazninisProcessor.getWords());
-        wordsLists.add(MorfemikaProcessor.getWords());
-        FilterAndAppender.getFullList(wordsLists);
+        List<List<Word>> allWords = new ArrayList<>();
+        allWords.add(DazninisProcessor.getWords());
+        allWords.add(MorfemikaProcessor.getWords());
+        ArrayList<Word> filteredList = FilterAndAppender.getFullList(allWords);
+        CsvWriter.write(filteredList);
     }
 
 
